@@ -32,8 +32,10 @@ INSERT INTO logi(kuupaev,kasutaja,andmed,tegevus)
 SELECT GETDATE(), USER, 
 CONCAT('vanad andmed: ',deleted.first_name,', ',deleted.last_name,', ',' ,',deleted.member_since,
 '\n uued andmed: ',inserted.first_name,', ',inserted.last_name,', ',' ,',inserted.member_since),'guest on uuendatud'
-FROM deleted, inserted
+FROM deleted INNER JOIN inserted
+ON deleted.guest_id=inserted.guest_id
 --kontroll
-update guest set first_name='Timuuuur' where guest_id=2;
+select * from guest;
+update guest set first_name='Timur' where guest_id=2;
 select * from guest;
 select * from logi;
