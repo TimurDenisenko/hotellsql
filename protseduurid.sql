@@ -44,3 +44,14 @@ SELECT * FROM guest;
 END
 --
 EXEC uuendaGuest @uusnimi='Timuuuuuuuuur',@id=2
+
+--Külaliste (guest) arvu leidmine
+USE hotellDenisenko 
+go
+CREATE PROCEDURE countGuests
+AS
+BEGIN
+SELECT count(first_name) as CountGuest from guest
+END
+--kustutamine
+EXEC countGuests
