@@ -1,3 +1,4 @@
+--View SQL serveris
 select EmployeeKey, FirstName, Gender, ParentEmployeeKey 
 from DimEmployee
 join DimDepartmentGroup
@@ -36,7 +37,7 @@ from DimEmployee
 join DimDepartmentGroup
 on DimEmployee.ParentEmployeeKey = DimDepartmentGroup.ParentDepartmentGroupKey
 group by DepartmentGroupName
-
+--View uuendused
 select * from vWEmployeesCountByDepartment
 
 create view vWemployeesDataExceptSalary
@@ -67,7 +68,7 @@ select * from vwEmployeeDetailsByDepartment
 update vwEmployeeDetailsByDepartment
 set ParentEmployeeKey='1' where FirstName = 'Mary'
 select * from vwEmployeeDetailsByDepartment
-
+--Indekseeritud view-d
 create view vWTotalSalesByProduct
 with SchemaBinding
 as
@@ -84,7 +85,7 @@ select * from vWTotalSalesByProduct
 create unique clustered index UIX_vWTotalSalesByProduct_Name
 on vWTotalSalesByProduct(EnglishProductName)
 execute sp_helpindex vWTotalSalesByProduct
-
+--View piirangud
 Create View vWEmployeeDetails
 @Gender nvarchar(20)
 as
