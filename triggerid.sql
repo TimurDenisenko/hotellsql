@@ -1,3 +1,4 @@
+--DDL Trigger SQL serveris
 create trigger trMyFirstTrigger
 on Database
 for CREATE_TABLE
@@ -40,7 +41,7 @@ print'You just renamed something'
 end
 
 sp_rename 'Test', 'NewTest' 
-
+-- Server-Scoped DDL triggerid
 create trigger tr_DatabaseScopeTrigger
 on database 
 for CREATE_TABLE, ALTER_TABLE, DROP_TABLE
@@ -68,7 +69,7 @@ enable trigger tr_ServerScopeTrigger on all server
 drop trigger tr_ServerScopeTrigger on all server
 
 SELECT name, is_disabled FROM sys.server_triggers
-
+--SQL serveri trigeri täitmise järjekord
 create trigger tr_DatabaseScopeTrigger
 on database
 for create_table
