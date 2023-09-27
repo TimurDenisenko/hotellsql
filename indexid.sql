@@ -1,8 +1,9 @@
+--indeksid serveris
 create clustered index IX_DimEmployee_Name
 ON DimEmployee(FirstName)
 
 drop index DimEmployee.PK_DimEmployee_EmployeeKey
-
+--klastreeritud ja mitte- klastreeritud
 create table tblEmployee(
 Id int Primary key,
 Name nvarchar(50),
@@ -26,7 +27,7 @@ Insert into tblEmployee Values(1,'John', 'Menco',2500,'Male','London')
 insert into tblEmployee values(1,'John',4500,'Male','New York');
 insert into tblEmployee values(1,'John',4500,'Male','New York');
 select * from tblEmployee
-
+--unkaalnje ja mitte-unikaalne indexid
 Create Unique NonClustered Index UIX_tblEmployee_FirstName_LastName
 On tblEmployee(FirstName, LastName)
 
@@ -55,7 +56,7 @@ UNIQUE NONCLUSTERED (City)
 CREATE UNIQUE INDEX IX_tblEmployee_City
 ON tblEmployee(City)
 WITH IGNORE_DUP_KEY
-
+--Indeksi plussid ja miinused
 create NonClustered index IX_DimEmployee_BaseRate
 on DimEmployee (BaseRate Asc)
 select EmployeeKey,BaseRate from DimEmployee
